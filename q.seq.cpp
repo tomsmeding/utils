@@ -10,7 +10,7 @@ using namespace std;
 
 int main(int argc,char **argv){
 	ios_base::sync_with_stdio(false);
-	if(argc<3){
+	if(argc<2){
 		cerr<<"Usage: "<<argv[0]<<" <command...>"<<endl;
 		return 1;
 	}
@@ -26,7 +26,6 @@ int main(int argc,char **argv){
 	if(*cmdstart!=NULL)cmds.push_back(cmdstart);
 	pid_t pid;
 	int status;
-	unsigned long long int iter;
 	for(char **cmdargv : cmds){
 		pid=fork();
 		if(pid==-1){ //error
@@ -46,7 +45,7 @@ int main(int argc,char **argv){
 				if(i!=0)cerr<<' ';
 				cerr<<cmdargv[i];
 			}
-			cerr<<"' exited with status "<<status<<" in iteration "<<iter<<endl;
+			cerr<<"' exited with status "<<status<<endl;
 			return status;
 		}
 	}
