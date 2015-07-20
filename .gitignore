@@ -1,2 +1,2 @@
-q.repeat
-q.seq
+q.*
+!*.cpp
