@@ -9,6 +9,3 @@ all: $(BINARIES)
 clean:
 	rm -f $(BINARIES)
 remake: clean all
-
-main: $(FILES)
-	$(CXX) $(CXXFLAGS) -o $(shell echo $^ | sed 's/.cpp$$//') $^
